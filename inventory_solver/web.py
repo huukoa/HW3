@@ -303,6 +303,16 @@ def create_page() -> None:
     """
     ui.colors(primary='#2d6a9f', secondary='#607e99', positive='#257b63')
     ui.add_css(STYLE)
+    
+    # Cloudflare Web Analytics
+    ui.add_head_html("""
+    <script
+      type="module"
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token":"b0393ec7484345b3b2a6f25688aecba5"}'>
+    </script>
+    """)
+
     state: dict[str, Any] = {'model': 'HW1', 'draft': example('HW1'), 'result': None, 'tab': 'Input', 'revision': 0,
                              'sensitivity': None, 'sensitivity_config': {}, 'sensitivity_revision': -1}
 
