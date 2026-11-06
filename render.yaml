@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: inventory-chapter3
+    runtime: python
+    plan: free
+    buildCommand: pip install uv && uv sync --no-dev
+    startCommand: uv run --no-dev python main.py
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: UV_PYTHON
+        value: '3.12'
